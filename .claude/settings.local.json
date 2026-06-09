@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Recurse \"C:\\\\Users\\\\USUARIO\\\\Desktop\\\\diappTrack\\\\backend\\\\src\" -File)",
+      "Bash(Select-Object FullName)",
+      "Bash(Sort-Object FullName)",
+      "PowerShell(Get-ChildItem -Recurse \"C:\\\\Users\\\\USUARIO\\\\Desktop\\\\diappTrack\\\\backend\\\\src\" -File | ForEach-Object { $_.FullName } | Sort-Object)",
+      "Bash(python -c \"import bcrypt; print\\(bcrypt.hashpw\\(b'Admin1234!', bcrypt.gensalt\\(rounds=12, prefix=b'2a'\\)\\).decode\\(\\)\\)\")",
+      "Bash(python -c \"import bcrypt; print\\(bcrypt.hashpw\\(b'Admin1234!', bcrypt.gensalt\\(rounds=12\\)\\).decode\\(\\)\\)\")",
+      "Bash(python -c \"import bcrypt; print\\('bcrypt OK'\\)\")",
+      "PowerShell($py = \\(Get-Command python -ErrorAction SilentlyContinue\\); if \\($py\\) { \"python: $\\($py.Source\\)\" } else { \"python: NOT FOUND\" }; $node = \\(Get-Command node -ErrorAction SilentlyContinue\\); if \\($node\\) { \"node: $\\($node.Source\\)\" } else { \"node: NOT FOUND\" })",
+      "PowerShell(python -c \"print\\('hello from python'\\)\")",
+      "Bash(dir \"C:\\\\Users\\\\USUARIO\\\\Desktop\\\\diappTrack\")"
+    ]
+  }
+}
