@@ -1,7 +1,8 @@
 export const environment = {
   production: true,
-  // ⚠️ Actualiza esta URL con la URL real de Railway después de desplegar el backend
-  apiUrl: 'https://TU-BACKEND.up.railway.app/api',
+  // Mismo origen: Vercel reenvía /api/* al backend de Railway (ver vercel.json).
+  // Esto evita problemas de cookies SameSite entre dominios y de CORS.
+  apiUrl: '/api',
   firebase: {
     apiKey: 'AIzaSyAb82mhrjNT7bKAgeVNqklYUantaxAJTjw',
     authDomain: 'diapptrack.firebaseapp.com',
