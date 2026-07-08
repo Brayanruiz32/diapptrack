@@ -1,0 +1,124 @@
+<mxfile host="app.diagrams.net" version="21.0.0">
+  <diagram id="topo-diapptrack" name="Topología de Despliegue">
+    <mxGraphModel dx="1300" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- TÍTULO -->
+        <mxCell id="2" value="Topología de Despliegue — DiappTrack"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=18;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="180" y="18" width="740" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ===== INTERNET / DNS (banda decorativa) ===== -->
+        <mxCell id="5" value="&lt;b&gt;Internet / DNS público&lt;/b&gt;"
+          style="text;html=1;strokeColor=#999999;fillColor=#f5f5f5;fontColor=#666666;fontSize=11;fontStyle=2;align=center;verticalAlign=middle;rounded=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="260" y="70" width="600" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ===== USUARIO FINAL ===== -->
+        <mxCell id="10"
+          value="&lt;b&gt;Usuario / Paciente&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:10px'&gt;Navegador Web (Chrome / Edge)&lt;br/&gt;Service Worker en segundo plano&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;"
+          vertex="1" parent="1">
+          <mxGeometry x="40" y="270" width="170" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- ===== VERCEL (contenedor) ===== -->
+        <mxCell id="20" value="&lt;b&gt;Vercel&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:10px;font-weight:normal'&gt;diapptrack.vercel.app&lt;/font&gt;"
+          style="swimlane;startSize=45;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="270" y="130" width="230" height="250" as="geometry" />
+        </mxCell>
+
+        <!-- CDN / Edge (dentro de Vercel) -->
+        <mxCell id="21"
+          value="&lt;b&gt;CDN Edge Network&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px'&gt;Caché y entrega global de estáticos&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;dashed=1;"
+          vertex="1" parent="20">
+          <mxGeometry x="15" y="50" width="200" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Angular dist/ (dentro de Vercel) -->
+        <mxCell id="22"
+          value="&lt;b&gt;Angular 17 PWA&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:9px'&gt;dist/ (archivos estáticos)&lt;br/&gt;vercel.json → /api/* proxy&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;"
+          vertex="1" parent="20">
+          <mxGeometry x="15" y="120" width="200" height="105" as="geometry" />
+        </mxCell>
+
+        <!-- ===== RAILWAY (contenedor) ===== -->
+        <mxCell id="30" value="&lt;b&gt;Railway&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:10px;font-weight:normal'&gt;diapptrack-production.up.railway.app&lt;/font&gt;"
+          style="swimlane;startSize=45;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="620" y="90" width="240" height="360" as="geometry" />
+        </mxCell>
+
+        <!-- Spring Boot container (dentro de Railway) -->
+        <mxCell id="31"
+          value="&lt;b&gt;Spring Boot 3.3&lt;/b&gt; — puerto :8080&lt;br/&gt;&lt;font style='font-size:9px'&gt;Contenedor JVM · Java 21&lt;br/&gt;Spring Security · Sesiones&lt;br/&gt;REST API · Flyway migrations&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;"
+          vertex="1" parent="30">
+          <mxGeometry x="20" y="55" width="200" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- MySQL (dentro de Railway) -->
+        <mxCell id="32"
+          value="&lt;b&gt;MySQL 8&lt;/b&gt; — puerto :3306 (interno)&lt;br/&gt;&lt;font style='font-size:9px'&gt;Red privada Railway&lt;br/&gt;Flyway migrations V1–V5&lt;/font&gt;"
+          style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;"
+          vertex="1" parent="30">
+          <mxGeometry x="20" y="210" width="200" height="115" as="geometry" />
+        </mxCell>
+
+        <!-- ===== FIREBASE / GOOGLE ===== -->
+        <mxCell id="40"
+          value="&lt;b&gt;Firebase — Google Cloud&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:10px'&gt;Cloud Messaging (FCM)&lt;br/&gt;Servidor de notificaciones push&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;"
+          vertex="1" parent="1">
+          <mxGeometry x="360" y="540" width="220" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- ===== FLECHAS / CONEXIONES ===== -->
+
+        <!-- Usuario → Vercel : HTTPS :443 -->
+        <mxCell id="50" value="HTTPS :443"
+          style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#6c8ebf;fontColor=#6c8ebf;fontStyle=1;fontSize=10;"
+          edge="1" source="10" target="20" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Vercel (proxy) → Spring Boot : HTTPS :443 /api/* -->
+        <mxCell id="51" value="&lt;b&gt;/api/* proxy&lt;/b&gt;&lt;br/&gt;HTTPS :443"
+          style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#b85450;fontColor=#b85450;fontStyle=0;fontSize=10;"
+          edge="1" source="22" target="31" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Spring Boot → MySQL : JDBC TCP :3306 interno -->
+        <mxCell id="52" value="JDBC · TCP :3306&lt;br/&gt;(red interna Railway)"
+          style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#82b366;fontColor=#82b366;fontStyle=0;fontSize=10;"
+          edge="1" source="31" target="32" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Spring Boot → Firebase : FCM API HTTPS -->
+        <mxCell id="53" value="FCM Admin SDK&lt;br/&gt;HTTPS (saliente)"
+          style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#d6b656;fontColor=#b46504;fontStyle=0;fontSize=10;"
+          edge="1" source="31" target="40" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Firebase → Usuario : WebPush / FCM push (dashed) -->
+        <mxCell id="54" value="WebPush / FCM&lt;br/&gt;Notificación push"
+          style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#d6b656;fontColor=#b46504;fontStyle=2;fontSize=10;dashed=1;"
+          edge="1" source="40" target="10" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
