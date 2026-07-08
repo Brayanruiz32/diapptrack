@@ -92,7 +92,7 @@ export class QuestionnaireFormComponent implements OnInit {
 
   get legend(): string {
     if (this.key.startsWith('Q1')) return 'Responde con el número de días (0 = ningún día, 7 = todos los días).';
-    return 'Escala 1 a 5  ·  1 = Totalmente en desacuerdo, 5 = Totalmente de acuerdo.';
+    return 'Escala 1 a 7  ·  1 = Totalmente en desacuerdo, 7 = Totalmente de acuerdo.';
   }
 
   range(min: number, max: number): number[] {
