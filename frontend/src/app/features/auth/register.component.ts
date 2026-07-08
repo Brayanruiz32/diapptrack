@@ -19,8 +19,8 @@ import { AuthService } from '../../core/services/auth.service';
   template: `
     <div class="auth-container">
       <div class="auth-header">
-        <mat-icon style="font-size:48px;width:48px;height:48px;color:#1565c0">favorite</mat-icon>
-        <h1>DiappTrack</h1>
+      <mat-icon style="font-size:48px;width:48px;height:48px;color:transparent;border:7px solid #1976d2;border-radius:100%">brightness_1</mat-icon>
+        <h1>DIAPP<span style="font-weight: 400;">TRACK</span></h1>
         <p class="text-muted">Crear nueva cuenta</p>
       </div>
 
