@@ -20,9 +20,8 @@ import { AuthService } from '../../core/services/auth.service';
   template: `
     <div class="auth-container">
       <div class="auth-header">
-        <mat-icon style="font-size:48px;width:48px;height:48px;color:transparent;border:7px solid #789DE5;border-radius:100%">brightness_1</mat-icon>
-        <h1>DiappTrack</h1>
-        <p class="text-muted">Sistema de autocuidado para diabetes</p>
+      <mat-icon style="font-size:48px;width:48px;height:48px;color:transparent;border:7px solid #1976d2;border-radius:100%">brightness_1</mat-icon>
+        <h1>DIAPP<span style="font-weight: 400;">TRACK</span></h1>
       </div>
 
       <mat-card>
